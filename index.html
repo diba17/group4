@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildTrack | Structural Intelligence Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- NEW SIDEBAR NAVIGATION (replaces top navbar) -->
+    <div class="app-layout">
+        <button class="mobile-toggle" id="mobileMenuBtn">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar-nav">
+        <div class="sidebar-brand">
+            <div class="brand-dot"></div>
+            <span>BuildTrack</span>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Overview Hub</span>
+                </a></li>
+                <li><a href="projects.html">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <span>Analytics & Phases</span>
+                </a></li>
+            
+                <li><a href="report.html">
+                    <span class="material-symbols-outlined">warning</span>
+                    <span>Log Site Incident</span>
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>Live Monitoring</span>
+                </div>
+            </div>
+        </aside>
+        
+
+        <main class="main-container">
+            <!-- BEAUTIFUL HEADER added -->
+            <header class="beautiful-header">
+                <div class="header-content">
+                    <div>
+                        <h1>Transforming Contruction Through <span>Efficient Management</span></h1>
+                        <p>A pristine frontend monitoring workspace tracing structural framing, logistical thresholds, and active site distributions across municipal operational assets.</p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-badge">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            <span id="currentDate"></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="hero-section">
+                <div class="hero-text">
+                    <div>
+                         <p> <h3>"Real-Time Intelligence for Critical Infrastructure"</h3>
+                           Track every incident logging, tool, phase progression and team member from foundation to final inspection for safer and more efficient job sites.
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                         <button class="btn open-modal-btn" data-title="System Diagnostics Suite" data-desc="All node communication pipelines are operating normally. Real-time telemetry connection verified.">Launch Metrics</button>
+                        <a href="projects.html" class="btn btn-secondary">Review Active Phases</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Modern Architecture Framing" class="hero-img">
+                </div>
+            </div>
+
+            <main class="main-layout">
+                
+                <section>
+                    <h2 class="section-title">Operational Core Indicators</h2>
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <label>Active Workspaces</label>
+                            <div class="value">18</div>
+                        </div>
+                        <div class="status-card">
+                            <label>Capital Distribution</label>
+                            <div class="value">₦5B</div>
+                        </div>
+                        <div class="status-card">
+                            <label>Assigned Personnel</label>
+                            <div class="value">342</div>
+                        </div>
+                        <div class="status-card">
+                            <label>Days Incident-Free</label>
+                            <div class="value" style="color: #16a34a;">520</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Primary Regional Deployments</h2>
+                    <div class="showcase-grid">
+                        
+                        <div class="project-card">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Commercial Tower Build">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">Structural Phase</span>
+                                <h3>Apex Office Tower</h3>
+                                <p>Currently executing reinforced concrete floor pours and curtain wall installation structures.</p>
+                                <button class="btn open-modal-btn" data-title="Apex Office Tower Matrix" data-desc="Structural engineering logs confirm compliance across all structural parameters. Next audit scheduled for Friday." style="margin-top: 1rem;">Inspect Parameters</button>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=600&q=80" alt="Subway Transit Construction">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag warning">Excavation Phase</span>
+                                <h3>Municipal Sub-Grade Transit</h3>
+                                <p>Continuous tunnel boring operational updates and subterranean safety parameter testing tracking.</p>
+                                <button class="btn open-modal-btn" data-title="Municipal Transit Core Parameters" data-desc="Geotechnical monitors are stable. Shoring metrics verified within tolerance thresholds." style="margin-top: 1rem;">Inspect Parameters</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+        </main>
+    </div>
+
+    <div id="infoModal" class="modal-mask">
+        <div class="modal-window">
+            <span class="modal-close">&times;</span>
+            <h2 id="modalTargetTitle" style="margin-bottom: 0.75rem; font-size: 1.5rem; letter-spacing: -0.5px;">Asset Report</h2>
+            <p id="modalTargetDesc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;"></p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Set current date in header
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    </script>
+</body>
+</html>

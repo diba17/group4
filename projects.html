@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildTrack | Phase Analytics Matrix</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" rel="stylesheet" />
+</head>
+<body>
+
+    
+    <div class="app-layout">
+        <button class="mobile-toggle" id="mobileMenuBtn">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar-nav">
+        <div class="sidebar-brand">
+            <div class="brand-dot"></div>
+            <span>BuildTrack</span>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Overview Hub</span>
+                </a></li>
+                <li><a href="projects.html" class="active">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <span>Analytics & Phases</span>
+                </a></li>
+                <li><a href="report.html">
+                    <span class="material-symbols-outlined">warning</span>
+                    <span>Log Site Incident</span>
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>Live Monitoring</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-container">
+            <header class="beautiful-header">
+                <div class="header-content">
+                    <div>
+                        <h1>Phase Progress <span>Tracking</span></h1>
+                        <p>Real-time quantitative development indices per operational sector.</p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-badge">
+                            <span class="material-symbols-outlined">timeline</span>
+                            <span>Live Metrics</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-layout">
+                <div style="margin-bottom: 2rem;">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">📐 Active Construction Projects</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Click any card for detailed breakdown of tools and specifications</p>
+                </div>
+
+                <div class="projects-grid-replacement" id="projectsGrid">
+                    
+                </div>
+
+                
+                <div class="tracker-container" style="margin-top: 3rem;">
+                    <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">Structural Progression Metrics</h2>
+                    
+                    <div class="phase-row">
+                        <div class="phase-meta">
+                            <span>Zone Alpha Deep Pile Shoring</span>
+                            <span style="color: var(--brand-blue);">92%</span>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div>
+                    </div>
+
+                    <div class="phase-row">
+                        <div class="phase-meta">
+                            <span>Superstructure Steel Rigging</span>
+                            <span style="color: var(--brand-blue);">61%</span>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 61%;"></div></div>
+                    </div>
+
+                    <div class="phase-row">
+                        <div class="phase-meta">
+                            <span>Subterranean Fluid Utilities Trenching</span>
+                            <span style="color: #16a34a;">100%</span>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 100%; background: #16a34a;"></div></div>
+                    </div>
+                </div>
+            </main>
+        </main>
+    </div>
+
+   
+    <div id="projectModal" class="modal-mask">
+        <div class="modal-window" style="max-width: 550px;">
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <h2 id="modalProjectTitle" style="margin-bottom: 0.75rem; font-size: 1.5rem;">Project Details</h2>
+            <div id="modalProjectBody"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        
+        const projectsData = [
+            {
+                id: 1,
+                name: "Sheraton Hotel",
+                location: "Abuja, Town",
+                status: "on-track",
+                progress: 68,
+                deadline: "Dec 2026",
+                budget: "₦142M",
+                tools: ["Tower Crane", "Concrete Pump", "Laser Level", "Total Station"]
+            },
+            {
+                id: 2,
+                name: "Suncity Residences",
+                location: "Galadimawa",
+                status: "delayed",
+                progress: 42,
+                deadline: "Mar 2027",
+                budget: "₦189M",
+                tools: ["Excavator", "Backhoe", "Compactor", "GPS Layout"]
+            },
+            {
+                id: 3,
+                name: "EFAB Estate Phase 2",
+                location: "Lokogoma",
+                status: "review",
+                progress: 87,
+                deadline: "Sept 2026",
+                budget: "₦225M",
+                tools: ["Mobile Crane", "Forklift", "Welding Gear", "Scaffolding System"]
+            },
+            {
+                id: 4,
+                name: "Jabi Lake Mall",
+                location: "Jabi Lake",
+                status: "on-track",
+                progress: 33,
+                deadline: "May 2028",
+                budget: "₦310M",
+                tools: ["Pile Driver", "Diaphragm Wall Grab", "Concrete Mixer", "Drone Survey"]
+            },
+            {
+                id: 5,
+                name: "Veritas University",
+                location: "Gaba, Bwari",
+                status: "review",
+                progress: 55,
+                deadline: "Feb 2027",
+                budget: "₦473M",
+                tools: ["Tunnel Boring Machine", "Rail Layers", "Vibratory Roller", "BIM Software"]
+            }
+        ];
+
+        function renderProjectCards() {
+            const container = document.getElementById('projectsGrid');
+            if (!container) return;
+
+            container.innerHTML = projectsData.map(proj => {
+                let statusClass = "", statusText = "";
+                if (proj.status === "on-track") { statusClass = "on-track"; statusText = "🟢 On Track"; }
+                else if (proj.status === "delayed") { statusClass = "delayed"; statusText = "🔴 Delayed"; }
+                else { statusClass = "review"; statusText = "🟠 Under Review"; }
+
+                return `
+                    <div class="project-card-replacement" data-project-id="${proj.id}">
+                        <div class="project-header">
+                            <span class="project-name">${proj.name}</span>
+                            <span class="status-badge ${statusClass}">${statusText}</span>
+                        </div>
+                        <div class="progress-area">
+                            <div class="progress-label">
+                                <span>Completion</span>
+                                <span>${proj.progress}%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-fill" style="width: ${proj.progress}%;"></div>
+                            </div>
+                        </div>
+                        <div class="project-meta">
+                            <span>📍 ${proj.location}</span>
+                            <span>📅 ${proj.deadline}</span>
+                            <span>💰 ${proj.budget}</span>
+                        </div>
+                        <div style="margin-top: 12px; font-size: 0.7rem; color: #2e8b6f;">
+                            🔧 ${proj.tools.slice(0, 2).join(', ')} + more
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showProjectModal(projectId) {
+            const project = projectsData.find(p => p.id == projectId);
+            if (!project) return;
+
+            const statusText = project.status === "on-track" ? "On Track ✅" : (project.status === "delayed" ? "Delayed ⚠️" : "Under Review 🔍");
+            const modalBody = document.getElementById('modalProjectBody');
+            const modalTitle = document.getElementById('modalProjectTitle');
+            
+            modalTitle.textContent = `📋 ${project.name}`;
+            modalBody.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div><strong>📍 Location:</strong> ${project.location}</div>
+                    <div><strong>📊 Status:</strong> ${statusText}</div>
+                    <div><strong>📈 Progress:</strong> ${project.progress}% completed</div>
+                    <div><strong>📅 Deadline:</strong> ${project.deadline}</div>
+                    <div><strong>💰 Budget:</strong> ${project.budget}</div>
+                    <div style="background: #f5f5f5; padding: 12px; border-radius: 8px; margin-top: 8px;">
+                        <strong>🛠️ Assigned Tools:</strong><br>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+                            ${project.tools.map(tool => `<span style="background: #e0e0e0; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;">🔨 ${tool}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
+        // Render cards on load
+        renderProjectCards();
+
+        // Add click listeners to project cards
+        document.querySelectorAll('.project-card-replacement').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const projectId = card.getAttribute('data-project-id');
+                if (projectId) showProjectModal(projectId);
+            });
+        });
+
+        // Modal close functionality
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalOverlay = document.getElementById('projectModal');
+        
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => {
+                modalOverlay.style.display = 'none';
+            });
+        }
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

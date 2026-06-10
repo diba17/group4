@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildTrack | Dispatch Incident Log</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <div class="app-layout">
+         <button class="mobile-toggle" id="mobileMenuBtn">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar-nav">
+        <div class="sidebar-brand">
+            <div class="brand-dot"></div>
+            <span>BuildTrack</span>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Overview Hub</span>
+                </a></li>
+                <li><a href="projects.html">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <span>Analytics & Phases</span>
+                </a></li>
+                <li><a href="report.html" class="active">
+                    <span class="material-symbols-outlined">warning</span>
+                    <span>Log Site Incident</span>
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span>Live Monitoring</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-container">
+            <!-- BEAUTIFUL HEADER -->
+            <header class="beautiful-header">
+                <div class="header-content">
+                    <div>
+                        <h1>Log Site <span>Disruption</span></h1>
+                        <p>Transmit material logs or safety alerts directly to the regional site coordination desk.</p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-badge">
+                            <span class="material-symbols-outlined">report</span>
+                            <span>Incident Report</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-layout">
+                <div class="form-panel">
+                    <form onsubmit="alert('Data localized. Frontend pipeline captured entry.'); return false;">
+                        
+                        <div class="input-block">
+                            <label>Target Operational Matrix Block</label>
+                            <select required>
+                                <option value="">-- Choose Construction Site --</option>
+                                <option>Sheraton Hotel</option>
+                                <option>Suncity Residence</option>
+                                <option>EFAB Estate Phase 2</option>
+                                <option>Jabi Lake Mall</option>
+                                <option>Veritas University</option>
+                            </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label>Log Vector Category</label>
+                            <select required>
+                                <option>Material Supply Variance</option>
+                                <option>Machinery Downtime Event</option>
+                                <option>Geotechnical Discrepancy</option>
+                                <option>Safety Incident</option>
+                                <option>Weather Delay</option>
+                            </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label>Detailed Field Observation Summary</label>
+                            <textarea rows="4" placeholder="Input specific coordinates, equipment serial codes, or structural impacts..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; padding: 0.85rem;">Transmit Field Update</button>
+                    </form>
+                </div>
+            </main>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
