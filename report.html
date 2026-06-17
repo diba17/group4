@@ -65,10 +65,9 @@
 
             <main class="main-layout">
                 <div class="form-panel">
-                    <form onsubmit="alert('Data localized. Frontend pipeline captured entry.'); return false;">
                         
                         <div class="input-block">
-                            <label>Target Operational Matrix Block</label>
+                            <label>Which Site?</label>
                             <select required>
                                 <option value="">-- Choose Construction Site --</option>
                                 <option>Sheraton Hotel</option>
@@ -79,24 +78,24 @@
                             </select>
                         </div>
 
-                        <div class="input-block">
-                            <label>Log Vector Category</label>
+                         <div class="input-block">
+                            <label>What kind of issue?</label>
                             <select required>
-                                <option>Material Supply Variance</option>
-                                <option>Machinery Downtime Event</option>
-                                <option>Geotechnical Discrepancy</option>
+                                <option value="">-- State the Issue --</option>
+                                <option>Material Supply Delay</option>
+                                <option>Electrical Fault</option>
+                                <option>Water Table Intrusion</option>
                                 <option>Safety Incident</option>
                                 <option>Weather Delay</option>
+                                <option>Others..</option>
                             </select>
-                        </div>
 
-                        <div class="input-block">
-                            <label>Detailed Field Observation Summary</label>
-                            <textarea rows="4" placeholder="Input specific coordinates, equipment serial codes, or structural impacts..." required></textarea>
+                       <div class="input-block">
+                            <label> State the details (coordinates, equipment codes, what happened?)</label>
+                            <textarea rows="4" placeholder="Example: Concrete pump broke down at Block D. Estimated delay 2hrs." required></textarea>
                         </div>
 
                         <button type="submit" class="btn" style="width: 100%; padding: 0.85rem;">Transmit Field Update</button>
-                    </form>
                 </div>
             </main>
         </main>
